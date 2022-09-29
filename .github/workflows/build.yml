@@ -19,7 +19,7 @@ jobs:
     - name: Install tooling
       run: |
         dotnet publish source\trx2junit\trx2junit.csproj -c release -p:PublishSingleFile=true --self-contained true --runtime win-x64 --framework net6.0 -p:PublishTrimmed=true -o ./publish
-        Get-ChildItem .\publish | Compress-Archive -DestinationPath .\release.zip
+        Get-ChildItem .\publish | Compress-Archive -DestinationPath release.zip -Verbose
     # - name: Upload Artifact
     #   uses: actions/upload-artifact@v3
     #   with:
@@ -33,4 +33,4 @@ jobs:
         prerelease: false
         title: "Release"
         files: |
-          .\release.zip
+          release.zip
